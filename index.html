@@ -1,0 +1,60 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>martins!</title>
+    <script src="phaser.js"></script>
+    <script src="sceneOne.js"></script>
+    <script src="sceneGame.js"></script>
+    <script src="sceneFinal.js"></script>
+
+    <style>
+        body {
+            margin-top: 1px;
+            padding: 0;
+        }
+
+        canvas {
+            border: 1px solid #000000;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="game"></div>
+
+    <script type="text/javascript">
+        //Configurações gerais do jogo
+        const config = {
+            type: Phaser.AUTO,
+            scale: {
+                mode: Phaser.Scale.FIT
+            },
+            autoCenter: Phaser.Scale.CENTER,
+            width: 800, //largura da tela do jogo
+            height: 600, //altura da tela do jogo
+            backgroundColor: '#39addd',
+            pixelArt: true,
+            fps: 120,
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 700 }, //Valor da Gravidade no Jogo
+                    debug: true //
+                }
+            },
+            parent: "game",
+            dom:{
+               createContainer: true,
+            },
+            scene: [sceneOne, sceneGame, sceneFinal] //Array com todas as cenas do jogo em ordem
+        };
+        
+        var game = new Phaser.Game(config);
+        game.scene.start('sceneOne'); //Define que a cena 'sceneOne' vai ser a primeira a ser executada ao iniciar o jogo
+    </script>
+
+</body>
+</html>
